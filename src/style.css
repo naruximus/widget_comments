@@ -1,0 +1,23 @@
+h2 {
+    align-self: center;
+}
+input{
+    align-self: flex-start;
+    font-size: 16px;
+    margin: 5px;
+}
+#app{
+    margin: 0 auto;
+    width: 400px;
+}
+.app-container{
+    display: flex;
+    flex-direction: column;
+}
+.comment-list{
+    list-style: none;
+    padding: 0;
+}
+p {
+    margin: 5px;
+}
