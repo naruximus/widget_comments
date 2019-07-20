@@ -1,8 +1,9 @@
 import Css from './src/style.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import InputItem from './src/component/input-item';
-import CommentList from './src/component/comment-list';
+// import InputItem from './src/component/input-item';
+// import CommentList from './src/component/comment-list';
+import CommentContainer from './src/containers/comment-container';
 const uniqid = require('uniqid');
 
 const storage = JSON.parse(localStorage.getItem('comments'));
@@ -69,35 +70,41 @@ class CommentApp extends React.Component {
     render () {
         const { comments } = this.state;
         return (
-            <div className='app-container'>
-                <h2>Comment App</h2>
-                <CommentList
-                    comments = {comments}
-                    deleteComment = {this.deleteComment}
-                />
-                <InputItem
-                    placeholder='Автор'
-                    type='text'
-                    name = 'newAuthor'
-                    value={this.state.newAuthor}
-                    onChange={this.inputChange}
-                 />
-                <InputItem
-                    placeholder='Комментарий'
-                    type='text'
-                    name='newText'
-                    value={this.state.newText}
-                    onChange={this.inputChange}
-                />
-                <InputItem
-                    type='button'
-                    name='button'
-                    value='Добавить комментарий'
-                    onClick={this.onAddToDoButton}
-                />
-                
-            </div>
+            <CommentContainer
+                comments = {comments}
+                self = {this}
+            />
         )
+        // return (
+        //     <div className='app-container'>
+        //         <h2>Comment App</h2>
+        //         <CommentList
+        //             comments = {comments}
+        //             deleteComment = {this.deleteComment}
+        //         />
+        //         <InputItem
+        //             placeholder='Автор'
+        //             type='text'
+        //             name = 'newAuthor'
+        //             value={this.state.newAuthor}
+        //             onChange={this.inputChange}
+        //          />
+        //         <InputItem
+        //             placeholder='Комментарий'
+        //             type='text'
+        //             name='newText'
+        //             value={this.state.newText}
+        //             onChange={this.inputChange}
+        //         />
+        //         <InputItem
+        //             type='button'
+        //             name='button'
+        //             value='Добавить комментарий'
+        //             onClick={this.onAddToDoButton}
+        //         />
+                
+        //     </div>
+        // )
     }
 }
 ReactDOM.render(
