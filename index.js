@@ -2,7 +2,7 @@ import Css from './src/style.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import InputItem from './src/component/input-item';
-import CommentList from './src/containers/comment-list';
+import CommentList from './src/component/comment-list';
 const uniqid = require('uniqid');
 
 const storage = JSON.parse(localStorage.getItem('comments'));
@@ -13,7 +13,7 @@ const defaultComments = [
 ];
 
 class CommentApp extends React.Component {
-    constructor() {
+    constructor () {
         super();
         this.state = {
             comments: storage || defaultComments,
@@ -23,13 +23,13 @@ class CommentApp extends React.Component {
         };
         this.deleteComment = this.deleteComment.bind(this)
         this.inputChange = this.inputChange.bind(this);
-        this.buttonClick = this.buttonClick.bind(this);
+        this.onAddToDoButton = this.onAddToDoButton.bind(this);
     }
 
     deleteComment(key) {
         let comments = [...this.state.comments];
-        comments.map((el, i) => {
-            if (el.id === key) {
+        comments.forEach((el, i) => {
+            if(el.id === key){
                 comments.splice(i, 1);
             }
         })
@@ -59,29 +59,29 @@ class CommentApp extends React.Component {
     inputChange({ target }) {
         this.setState({ [target.name]: target.value })
     }
-    buttonClick() {
+    onAddToDoButton() {
         if (this.state.newText && this.state.newAuthor) {
             this.addComment();
         } else {
             alert('Заполните все поля');
         }
     }
-    render() {
+    render () {
         const { comments } = this.state;
         return (
             <div className='app-container'>
                 <h2>Comment App</h2>
                 <CommentList
-                    comments={comments}
-                    deleteComment={this.deleteComment}
+                    comments = {comments}
+                    deleteComment = {this.deleteComment}
                 />
                 <InputItem
                     placeholder='Автор'
                     type='text'
-                    name='newAuthor'
+                    name = 'newAuthor'
                     value={this.state.newAuthor}
                     onChange={this.inputChange}
-                />
+                 />
                 <InputItem
                     placeholder='Комментарий'
                     type='text'
@@ -93,9 +93,9 @@ class CommentApp extends React.Component {
                     type='button'
                     name='button'
                     value='Добавить комментарий'
-                    onClick={this.buttonClick}
+                    onClick={this.onAddToDoButton}
                 />
-
+                
             </div>
         )
     }

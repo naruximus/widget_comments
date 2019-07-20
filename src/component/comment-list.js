@@ -1,5 +1,5 @@
 import React from 'react';
-import CommentItem from '../component/comment-list_item';
+import CommentItem from './comment-list_item';
 
 const CommentList = ({ comments, deleteComment}) => {
     return (
