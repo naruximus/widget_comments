@@ -75,36 +75,6 @@ class CommentApp extends React.Component {
                 self = {this}
             />
         )
-        // return (
-        //     <div className='app-container'>
-        //         <h2>Comment App</h2>
-        //         <CommentList
-        //             comments = {comments}
-        //             deleteComment = {this.deleteComment}
-        //         />
-        //         <InputItem
-        //             placeholder='Автор'
-        //             type='text'
-        //             name = 'newAuthor'
-        //             value={this.state.newAuthor}
-        //             onChange={this.inputChange}
-        //          />
-        //         <InputItem
-        //             placeholder='Комментарий'
-        //             type='text'
-        //             name='newText'
-        //             value={this.state.newText}
-        //             onChange={this.inputChange}
-        //         />
-        //         <InputItem
-        //             type='button'
-        //             name='button'
-        //             value='Добавить комментарий'
-        //             onClick={this.onAddToDoButton}
-        //         />
-                
-        //     </div>
-        // )
     }
 }
 ReactDOM.render(
